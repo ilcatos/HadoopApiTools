@@ -6,7 +6,7 @@ String testUserName = "cloudera-scm"
 String testPath = "/home/"
 String testFile = "config.xml"
 
-t = lib.api.tools.HadoopApiTools()
+t = lib.HadoopApiTools()
 
 
 node {

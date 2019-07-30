@@ -17,14 +17,14 @@ node {
 
     stage('Get status of directory in HDFS') {
 
-        def info1 = getStatusOfDir(testUrl, testUserName, testDirname)
+        def info1 = HadoopApiTools().getStatusOfDir(testUrl, testUserName, testDirname)
         println(info1)
 
     }
     
     stage('Put Files In Hdfs'){
 
-        def info2 = PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
+        def info2 = HadoopApiTools().PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
         println(info2)
     }
 

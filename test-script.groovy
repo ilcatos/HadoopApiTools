@@ -1,4 +1,7 @@
-import HadoopApiTools
+library identifier: 'HadoopApiTools@master', retriever: modernSCM([$class: 'GitSCMSource', credentialsId: 'dbd9bf1b-0fd7-45da-b7c8-a7c3c3e03a23', remote: 'https://github.com/ilcatos/HadoopApiTools.git'])
+
+
+//import HadoopApiTools
 
 tool = new HadoopApiTools()
 
@@ -18,16 +21,15 @@ node {
 
     stage('Get status of directory in HDFS') {
 
-        tool.getStatusOfDir(testUrl, testUserName, testDirname)
-        println "-------------------------------------------------"
-        println(getStatusOfDir(testUrl, testUserName, testDirname))
+        def info1 = tool.getStatusOfDir(testUrl, testUserName, testDirname)
+        println(info1)
 
     }
     
     stage('Put Files In Hdfs'){
 
-        def info = tool.PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
-        println(info)
+        def info2 = tool.PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
+        println(info2)
     }
 
 }

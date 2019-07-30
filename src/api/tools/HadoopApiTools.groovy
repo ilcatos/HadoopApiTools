@@ -1,4 +1,3 @@
-package api.tools;
 
 import groovy.json.JsonSlurper
 

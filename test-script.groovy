@@ -16,14 +16,14 @@ node {
 
     stage('Get status of directory in HDFS') {
 
-        def info1 = lib.getStatusOfDir(testUrl, testUserName, testDirname)
+        def info1 = lib.api.tools.getStatusOfDir(testUrl, testUserName, testDirname)
         println(info1)
 
     }
     
     stage('Put Files In Hdfs'){
 
-        def info2 = lib.PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
+        def info2 = lib.api.tools.PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
         println(info2)
     }
 

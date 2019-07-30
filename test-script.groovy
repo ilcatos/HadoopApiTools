@@ -1,4 +1,4 @@
-library identifier: 'tools', retriever: modernSCM([$class: 'GitSCMSource', credentialsId: 'dbd9bf1b-0fd7-45da-b7c8-a7c3c3e03a23', remote: 'https://github.com/ilcatos/HadoopApiTools.git', traits: [[$class: 'jenkins.plugins.git.traits.BranchDiscoveryTrait']]])
+library identifier: 'tools@master', retriever: modernSCM([$class: 'GitSCMSource', credentialsId: 'dbd9bf1b-0fd7-45da-b7c8-a7c3c3e03a23', remote: 'https://github.com/ilcatos/HadoopApiTools.git', traits: [[$class: 'jenkins.plugins.git.traits.BranchDiscoveryTrait']]])
 // def lib = library (identifier: 'example@master', retriever: modernSCM([$class: 'GitSCMSource', credentialsId: 'dbd9bf1b-0fd7-45da-b7c8-a7c3c3e03a23', remote: 'https://github.com/ilcatos/HadoopApiTools.git']))
 
 String testUrl = "http://quickstart.cloudera:14000"

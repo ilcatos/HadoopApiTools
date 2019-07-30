@@ -7,7 +7,7 @@ String testUserName = "cloudera-scm"
 String testPath = "/home/"
 String testFile = "config.xml"
 
-def tools = new HadoopApiTools()
+//def tools = new HadoopApiTools()
 
 
 node {
@@ -17,14 +17,14 @@ node {
 
     stage('Get status of directory in HDFS') {
 
-        def info1 = tools.getStatusOfDir(testUrl, testUserName, testDirname)
+        def info1 = HadoopApiTools.getStatusOfDir(testUrl, testUserName, testDirname)
         println(info1)
 
     }
     
     stage('Put Files In Hdfs'){
 
-        def info2 = tools.PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
+        def info2 = HadoopApiTools.PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
         println(info2)
     }
 

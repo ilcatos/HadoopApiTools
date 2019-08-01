@@ -1,0 +1,9 @@
+- hosts: localhost
+  vars:
+    workDir: "{{ lookup('env','cwd') }}"
+    to_jar: "{{ path_to_jar }}"
+    pipeline_id: "{{ CI_PIPELINE_ID }}"
+    supply_path: "{{ SUPPLY_PATH }}"
+
+  roles:
+    - edit-config

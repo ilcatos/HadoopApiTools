@@ -1,14 +1,10 @@
-//library identifier: 'tools@master', retriever: modernSCM([$class: 'GitSCMSource', credentialsId: 'dbd9bf1b-0fd7-45da-b7c8-a7c3c3e03a23', remote: 'https://github.com/ilcatos/HadoopApiTools.git', traits: [[$class: 'jenkins.plugins.git.traits.BranchDiscoveryTrait']]])
-library (identifier: 'example@master', retriever: modernSCM([$class: 'GitSCMSource', credentialsId: 'dbd9bf1b-0fd7-45da-b7c8-a7c3c3e03a23', remote: 'https://github.com/ilcatos/HadoopApiTools.git']))
+def lib = library identifier: 'example@master', retriever: modernSCM([$class: 'GitSCMSource', credentialsId: 'dbd9bf1b-0fd7-45da-b7c8-a7c3c3e03a23', remote: 'https://github.com/ilcatos/HadoopApiTools.git', traits: [[$class: 'jenkins.plugins.git.traits.BranchDiscoveryTrait']]])
 
 String testUrl = "http://quickstart.cloudera:14000"
 String testDirname = "project-1-tmp"
 String testUserName = "cloudera-scm"
 String testPath = "/home/"
 String testFile = "config.xml"
-
-//def tools = new HadoopApiTools()
-
 
 node {
     stage('Prepare work dir '){
@@ -17,15 +13,19 @@ node {
 
     stage('Get status of directory in HDFS') {
 
-        def info1 = HadoopApiTools().getStatusOfDir(testUrl, testUserName, testDirname)
-        println(info1)
+        lib.by.devops.hadoop.HadoopApiTools.new().getStatusOfDir(testUrl, testUserName, testDirname)
+
+//        def info1 = HadoopApiTools().getStatusOfDir(testUrl, testUserName, testDirname)
+//        println(info1)
 
     }
     
     stage('Put Files In Hdfs'){
 
-        def info2 = HadoopApiTools().PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
-        println(info2)
+        println("JOB 3 RUN-DONE")
+
+//        def info2 = HadoopApiTools().PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
+//        println(info2)
     }
 
 }

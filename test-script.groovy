@@ -13,7 +13,7 @@ node {
 
     stage('Get status of directory in HDFS') {
 
-        lib.by.devops.hadoop.HadoopApiTools.new().getStatusOfDir(testUrl, testUserName, testDirname)
+        lib.by.devops.hadoop.lib.HadoopApiTools.new().getStatusOfDir(testUrl, testUserName, testDirname)
 
 //        def info1 = HadoopApiTools().getStatusOfDir(testUrl, testUserName, testDirname)
 //        println(info1)

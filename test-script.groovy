@@ -4,7 +4,7 @@ String testUrl = "http://quickstart.cloudera:14000"
 String testDirname = "project-1-tmp"
 String testUserName = "cloudera-scm"
 String testPath = "/home/"
-String testFile = "config.xml"
+String testFile = "job.xml"
 
 node {
     stage('Prepare work dir '){
@@ -22,10 +22,10 @@ node {
     
     stage('Put Files In Hdfs'){
 
-        println("JOB 3 RUN-DONE")
-
-//        def info2 = HadoopApiTools().PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
-//        println(info2)
+        def info2 = HadoopApiTools().PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
+        println("-----------------------------------------------")
+        println(info2)
+        println("-----------------------------------------------")
     }
 
 }

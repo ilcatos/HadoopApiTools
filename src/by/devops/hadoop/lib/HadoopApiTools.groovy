@@ -14,9 +14,13 @@ import groovy.json.JsonSlurper
                 script:  "curl --negotiate -u : '${httpfs_url}/webhdfs/v1/user/${hadoop_user}/${hdfs_dirname}/?op=LISTSTATUS'",
                 returnStdout: true
         ).trim()
-        def infoOutput = new JsonSlurper().parseText(info.text)
+//        def infoOutput = new JsonSlurper().parseText(info.text)
 
+        println("---------------------------------------")
+        println(info)
+        println("---------------------------------------")
 
+/*
         if (infoOutput.FileStatuses == null) {
 
             return infoOutput.RemoteException
@@ -25,8 +29,10 @@ import groovy.json.JsonSlurper
 
             return infoOutput.FileStatuses
 
-        }
 
+
+        }
+ */
     }
 
 

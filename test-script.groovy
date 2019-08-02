@@ -22,8 +22,8 @@ node {
 
         println("JOB 3 RUN-DONE")
 
-        def info2 = HadoopApiTools().PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
-        println(info2)
+//        def info2 = HadoopApiTools().PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
+//        println(info2)
     }
 
 }

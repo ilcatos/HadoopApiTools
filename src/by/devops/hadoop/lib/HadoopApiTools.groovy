@@ -3,22 +3,29 @@ package by.devops.hadoop.lib
 import groovy.json.JsonSlurper
 
     def getStatusOfDir(String httpfs_url, String hadoop_user, String hdfs_dirname) {
-
+/*
         def process = ['bash', '-c', "curl --negotiate -u : \"${httpfs_url}/webhdfs/v1/user/${hadoop_user}/${hdfs_dirname}/?op=LISTSTATUS\""].execute()
         process.waitFor()
         def info = new JsonSlurper().parseText(process.text)
 
-        if (info.FileStatuses == null) {
 
-            return info.RemoteException
+ */
+        def info = sh (
+                script:  "curl --negotiate -u : '${httpfs_url}/webhdfs/v1/user/${hadoop_user}/${hdfs_dirname}/?op=LISTSTATUS'",
+                returnStdout: true
+        ).trim()
+        def infoOutput = new JsonSlurper().parseText(info.text)
+
+
+        if (infoOutput.FileStatuses == null) {
+
+            return infoOutput.RemoteException
 
         } else {
 
-            return info.FileStatuses
+            return infoOutput.FileStatuses
 
         }
-
-
 
     }
 

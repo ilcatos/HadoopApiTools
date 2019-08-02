@@ -22,7 +22,7 @@ node {
     
     stage('Put Files In Hdfs'){
 
-        def info2 = HadoopApiTools().PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
+        def info2 = lib.by.devops.hadoop.lib.HadoopApiTools.new().PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
         println("-----------------------------------------------")
         println(info2)
         println("-----------------------------------------------")

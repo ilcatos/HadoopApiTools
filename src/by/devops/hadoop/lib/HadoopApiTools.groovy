@@ -23,6 +23,7 @@ import groovy.json.JsonSlurper
 
         } else {
 
+            // return infoOutput.FileStatuses
             return infoOutput.FileStatuses
 
         }

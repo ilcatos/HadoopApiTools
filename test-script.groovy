@@ -13,10 +13,8 @@ node {
 
     stage('Get status of directory in HDFS') {
 
-        lib.by.devops.hadoop.lib.HadoopApiTools.new().getStatusOfDir(testUrl, testUserName, testDirname)
-
-//        def info1 = HadoopApiTools().getStatusOfDir(testUrl, testUserName, testDirname)
-//        println(info1)
+        def info1 = lib.by.devops.hadoop.lib.HadoopApiTools.new().getStatusOfDir(testUrl, testUserName, testDirname)
+        println(info1)
 
     }
     
@@ -24,8 +22,8 @@ node {
 
         println("JOB 3 RUN-DONE")
 
-//        def info2 = HadoopApiTools().PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
-//        println(info2)
+        def info2 = HadoopApiTools().PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
+        println(info2)
     }
 
 }

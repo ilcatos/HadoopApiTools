@@ -16,11 +16,7 @@ import groovy.json.JsonSlurper
         ).trim()
         def infoOutput = new JsonSlurper().parseText(info)
 
-        println("---------------------------------------")
-        println(infoOutput)
-        println("---------------------------------------")
 
-/*
         if (infoOutput.FileStatuses == null) {
 
             return infoOutput.RemoteException
@@ -29,10 +25,7 @@ import groovy.json.JsonSlurper
 
             return infoOutput.FileStatuses
 
-
-
         }
- */
     }
 
 

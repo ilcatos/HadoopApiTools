@@ -14,10 +14,10 @@ import groovy.json.JsonSlurper
                 script:  "curl --negotiate -u : '${httpfs_url}/webhdfs/v1/user/${hadoop_user}/${hdfs_dirname}/?op=LISTSTATUS'",
                 returnStdout: true
         ).trim()
-//        def infoOutput = new JsonSlurper().parseText(info.text)
+        def infoOutput = new JsonSlurper().parseText(info)
 
         println("---------------------------------------")
-        println(info)
+        println(infoOutput)
         println("---------------------------------------")
 
 /*

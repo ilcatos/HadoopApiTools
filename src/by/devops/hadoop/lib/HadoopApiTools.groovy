@@ -39,6 +39,9 @@ import groovy.json.JsonSlurper
 
         def infoOutput = new JsonSlurper().parseText(info)
 
+        return infoOutput
+
+/*
         if (infoOutput.FileStatuses == null) {
 
             return infoOutput.RemoteException.message
@@ -49,4 +52,6 @@ import groovy.json.JsonSlurper
 
         }
 
+
+ */
     }

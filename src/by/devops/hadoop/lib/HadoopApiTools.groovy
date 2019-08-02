@@ -36,6 +36,7 @@ import groovy.json.JsonSlurper
         def info = sh (
                 script:  "curl --negotiate -X PUT -L -u : '${httpfs_url}/webhdfs/v1/user/${hadoop_user}/${hdfs_dirname}/${file}?op=CREATE&&user.name=${hadoop_user}'  --header 'Content-Type: application/octet-stream' -T ${PathTofile}/${file}",
                 returnStdout: true).trim()
+
         def infoOutput = new JsonSlurper().parseText(info)
 
         if (infoOutput.FileStatuses == null) {

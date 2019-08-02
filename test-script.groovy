@@ -3,7 +3,7 @@ def lib = library identifier: 'example@master', retriever: modernSCM([$class: 'G
 String testUrl = "http://quickstart.cloudera:14000"
 String testDirname = "project-1-tmp"
 String testUserName = "cloudera-scm"
-String testPath = "/home/"
+String testPath = "/home"
 String testFile = "job.xml"
 
 node {

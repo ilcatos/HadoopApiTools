@@ -13,18 +13,20 @@ node {
 
     stage('Get status of directory in HDFS') {
 
-        def info1 = lib.by.devops.hadoop.lib.HadoopApiTools.new().getStatusOfDir(testUrl, testUserName, testDirname)
+        def info0 = lib.by.devops.hadoop.lib.HadoopApiTools.new().createDir(testUrl, testUserName, testDirname)
+//        def info1 = lib.by.devops.hadoop.lib.HadoopApiTools.new().getStatusOfDir(testUrl, testUserName, testDirname)
         println("???????????????????????????????????????????????")
-        println(info1)
+        println(info0)
         println("???????????????????????????????????????????????")
 
     }
     
     stage('Put Files In Hdfs'){
 
-        def info2 = lib.by.devops.hadoop.lib.HadoopApiTools.new().PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
+//        def info2 = lib.by.devops.hadoop.lib.HadoopApiTools.new().PutFilesInHdfs(testUrl,testUserName,testDirname,testPath,testFile)
+        def info1 = lib.by.devops.hadoop.lib.HadoopApiTools.new().getStatusOfDir(testUrl, testUserName, testDirname)
         println("-----------------------------------------------")
-        println(info2)
+        println(info1)
         println("-----------------------------------------------")
     }
 

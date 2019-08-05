@@ -2,6 +2,26 @@ package by.devops.hadoop.lib
 
 import groovy.json.JsonSlurper
 
+    def createDir(String httpfs_url, String hadoop_user, String hdfs_dirname) {
+
+        def info = sh (
+                script:  "curl -i -X PUT -u : 'http://${httpfs_url}/webhdfs/v1/user/${hadoop_user}/${hdfs_dirname}?op=MKDIRS[&permission=<OCTAL>]'",
+                returnStdout: true).trim()
+
+        def infoOutput = new JsonSlurper().parseText(info)
+
+        if (infoOutput.FileStatuses == null) {
+
+            return infoOutput.RemoteException
+
+        } else {
+
+            return infoOutput.boolean
+
+        }
+
+    }
+
     def getStatusOfDir(String httpfs_url, String hadoop_user, String hdfs_dirname) {
 /*
         def process = ['bash', '-c', "curl --negotiate -u : \"${httpfs_url}/webhdfs/v1/user/${hadoop_user}/${hdfs_dirname}/?op=LISTSTATUS\""].execute()

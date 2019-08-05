@@ -3,9 +3,9 @@ package by.devops.hadoop.lib
 import groovy.json.JsonSlurper
 
     def createDir(String httpfs_url, String hadoop_user, String hdfs_dirname) {
-
+    // also must add permission part : [&permission=<OCTAL>]
         def info = sh (
-                script:  "curl -i -X PUT -u : 'http://${httpfs_url}/webhdfs/v1/user/${hadoop_user}/${hdfs_dirname}?op=MKDIRS[&permission=<OCTAL>]'",
+                script:  "curl -i -X PUT -u : 'http://${httpfs_url}/webhdfs/v1/user/${hadoop_user}/${hdfs_dirname}?op=MKDIRS'",
                 returnStdout: true).trim()
 
         def infoOutput = new JsonSlurper().parseText(info)
